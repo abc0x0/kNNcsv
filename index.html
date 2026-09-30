@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="kNN Móvil">
+  <title>Clasificador k-NN</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <img src="icons/logo.svg" class="logo" alt="Logotipo k-NN">
+    <div>
+      <h1>Clasificador k-NN</h1>
+      <p>Dos rasgos cuantitativos</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Cargar datos conocidos</h2>
+      <label class="file-btn">
+        <input id="csvFile" type="file" accept=".csv,text/csv">
+        Seleccionar archivo CSV
+      </label>
+      <p id="fileStatus" class="muted">Ningún archivo cargado.</p>
+      <button id="loadExample" class="secondary">Usar datos de ejemplo</button>
+      <details>
+        <summary>Formato esperado</summary>
+        <pre>x,y,clase
+90,5.0,Limon
+110,5.5,Limon
+170,7.0,Naranja</pre>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>2. Nuevo objeto</h2>
+      <div class="grid2">
+        <label>Rasgo X
+          <input id="xValue" type="number" step="any" inputmode="decimal" placeholder="Ej. 185">
+        </label>
+        <label>Rasgo Y
+          <input id="yValue" type="number" step="any" inputmode="decimal" placeholder="Ej. 7.2">
+        </label>
+      </div>
+
+      <label>Valor de k
+        <select id="kValue">
+          <option value="1">1</option>
+          <option value="3" selected>3</option>
+          <option value="5">5</option>
+          <option value="7">7</option>
+          <option value="9">9</option>
+        </select>
+      </label>
+
+      <button id="classifyBtn" class="primary">Clasificar</button>
+      <div id="result" class="result hidden"></div>
+    </section>
+
+    <section class="card plot-card">
+      <div class="plot-head">
+        <h2>3. Plano X–Y</h2>
+        <button id="resetView" class="tiny">Ajustar</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="plot" width="720" height="720" aria-label="Plano cartesiano de clasificación"></canvas>
+      </div>
+      <div id="legend" class="legend"></div>
+    </section>
+
+    <section class="card">
+      <h2>4. Vecinos más cercanos</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>X</th><th>Y</th><th>Clase</th><th>Dist.</th></tr>
+          </thead>
+          <tbody id="neighborsBody">
+            <tr><td colspan="5" class="muted">Clasifica un objeto para ver los vecinos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card install-card">
+      <button id="installBtn" class="secondary hidden">Instalar aplicación</button>
+      <p class="muted">La instalación requiere servir la app por HTTPS o desde localhost.</p>
+    </section>
+  </main>
+
+  <footer>
+    k-NN educativo · HTML, CSS y JavaScript puro
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

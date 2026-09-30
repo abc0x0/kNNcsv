@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#111827"/>
+  <circle cx="146" cy="164" r="34" fill="#2563eb"/>
+  <circle cx="366" cy="164" r="34" fill="#16a34a"/>
+  <circle cx="146" cy="348" r="34" fill="#dc2626"/>
+  <circle cx="366" cy="348" r="34" fill="#7c3aed"/>
+  <circle cx="256" cy="256" r="52" fill="#ffffff"/>
+  <path d="M174 186 L226 226 M338 186 L286 226 M174 326 L226 286 M338 326 L286 286"
+        stroke="#9ca3af" stroke-width="18" stroke-linecap="round"/>
+  <text x="256" y="274" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="56" font-weight="700" fill="#111827">kNN</text>
+</svg>
